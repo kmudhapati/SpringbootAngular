@@ -1,0 +1,47 @@
+
+
+<div align='center'>
+     <h2 >Employee PTO management</h2>
+     <div ng-if="errorMessage" >
+      <h2 ><p style="color:red">{{errorMessage}} </p></h2>
+    </div>
+</div>
+
+
+<div align='center'>
+<table border="3" width="60%" title="Employee PTO management">
+  <tr>
+    <td>Name</td>
+    <td> PTO used </td>
+    <td> PTO Balance </td>
+    <td>Total Days worked</td>
+    <td>Work days</td>
+    <td>PTO</td>
+    <td></td>
+  </tr>
+<tr *ngFor="let employee of employees" style="text-align:center">
+  <td>
+     {{ employee.name }}
+  </td>
+  <td>
+    {{ employee.vacationTaken }}
+ </td>
+ <td>
+  {{ employee.timeBankBalance }}
+</td>
+<td>
+  {{ employee.daysWorked }}
+</td>
+<td>
+  
+  <input maxlength="5"  type="text" [(ngModel)] ="employee.daysReported"/>&nbsp;
+  <button (click)="updateWorkDays(employee)" >Save</button>
+</td>
+<td>
+ 
+  <input maxlength="5"  type="text" [(ngModel)] ="employee.requestedPTO"/>&nbsp;
+  <button (click)="updatePTO(employee)" >Save</button>
+</td>
+</tr>
+</table>
+</div>
